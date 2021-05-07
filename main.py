@@ -1,12 +1,13 @@
 import json
 import discord
-import asyncio
 from discord.ext import commands
 import os
 
 intents = discord.Intents.all()
 with open("setting.json", mode="r", encoding="utf8") as sfile:
     sdata = json.load(sfile)
+with open("token_setting.json","r",encoding="utf8") as tfile:
+    tdata = json.load(tfile)
 bot = commands.Bot(command_prefix=">", intents=intents)
 bot.remove_command('help')
 
@@ -51,4 +52,4 @@ for filename in os.listdir("./cogs"):
     if filename.endswith(".py"):
         bot.load_extension(f'cogs.{filename[:-3]}')
 if __name__ == "__main__":
-    bot.run(sdata["TOKEN"])
+    bot.run(tdata["TOKEN"])
