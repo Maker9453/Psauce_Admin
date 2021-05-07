@@ -20,7 +20,7 @@ class Defalut(commands.Cog, name="Defalut"):
         channel = ctx.channel
         await channel.purge(limit=1)
         if len(args) > 1:
-            await ctx.send("含空格的文字請用a""包住所有的文字!", delete_after=3)
+            await ctx.send("含空格的文字請用""包住所有的文字!", delete_after=3)
         else:
             await ctx.send(args[0])
 
