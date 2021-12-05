@@ -38,10 +38,9 @@ async def re(ctx, extension):
     await ctx.send(f'{extension} 已重新載入!', delete_after=3)
 
 
-
-
 for filename in os.listdir("./cogs"):
     if filename.endswith(".py"):
         bot.load_extension(f'cogs.{filename[:-3]}')
+
 if __name__ == "__main__":
     bot.run(tdata["TOKEN"])
