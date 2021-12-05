@@ -1,3 +1,4 @@
+from discord import SystemChannelFlags
 from discord.ext import commands
 import json
 
@@ -11,9 +12,7 @@ class Defalut(commands.Cog, name="Defalut"):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        channel = self.bot.get_channel(sdata["ready_channel"])
         print("Default 已經準備好了")
-        await channel.send("Default 已經載入!")
 
     @commands.command()  # 重複話
     async def repeat(self, ctx, *args):
@@ -32,7 +31,9 @@ class Defalut(commands.Cog, name="Defalut"):
         else:
             await channel.purge(limit=int(args[0]) + 1)
             await ctx.send(f'已清除{args[0]}行! (此訊息三秒後銷毀)', delete_after=3)
-
+    @commands.command()
+    async def ping(self, ctx):
+         await ctx.send(F'{round(SystemChannelFlags.bot.latency*1000)}毫秒')
 
 def setup(bot):
     bot.add_cog(Defalut(bot))

@@ -18,9 +18,7 @@ class Event(commands.Cog, name="Event"):
     cfile.close()
     @commands.Cog.listener()
     async def on_ready(self):
-        channel = self.bot.get_channel(cdata["ready_channel"])
         print("Event 已經準備好了")
-        await channel.send("Event 已經載入!")
 
     @commands.Cog.listener()
     async def on_member_join(self, member):

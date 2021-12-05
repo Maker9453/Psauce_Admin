@@ -41,9 +41,7 @@ class Help(commands.Cog, name="Help"):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        channel = self.bot.get_channel(807848270671642656)
         print("Help 已經準備好了")
-        await channel.send("Help 已經載入!")
 
     @commands.group(invoke_without_command=True)
     async def help(self, ctx):
